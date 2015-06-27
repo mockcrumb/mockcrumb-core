@@ -1,0 +1,11 @@
+*.iml
+*.patch
+.classpath
+.DS_Store
+.idea
+.metadata
+.project
+.settings
+RemoteSystemsTempFiles
+
+**/target
