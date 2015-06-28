@@ -1,5 +1,6 @@
 package org.mockcrumb.sample.annotation;
 
+import org.mockcrumb.MockcrumbLoader;
 import org.mockcrumb.annotation.MockcrumbAnnotations;
 import org.mockcrumb.annotation.Mockcrumb;
 import org.mockcrumb.sample.model.Foo;
@@ -25,7 +26,7 @@ public final class Main {
 
         Path contextPath = new File(Main.class.getClassLoader().getResource("sample-structure1").getPath()).toPath();
         FooEmbedded fooEmbedded = new FooEmbedded();
-        MockcrumbAnnotations.init(fooEmbedded, contextPath);
+        MockcrumbAnnotations.init(fooEmbedded, MockcrumbLoader.of(contextPath));
         System.out.println(fooEmbedded.getFooValue());
 
         System.out.println("=== Finished");
