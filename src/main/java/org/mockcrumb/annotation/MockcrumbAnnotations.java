@@ -1,6 +1,7 @@
 package org.mockcrumb.annotation;
 
 import org.mockcrumb.MockcrumbLoader;
+import org.mockcrumb.exception.MockcrumbException;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
@@ -15,11 +16,15 @@ public final class MockcrumbAnnotations {
                 if (annotation instanceof Mockcrumb) {
                     Mockcrumb mockcrumb = (Mockcrumb) annotation;
                     try {
-                        // TODO(maciejgowin) Use field name if name not specified
+                        // Use field name if name not specified
+                        String name = mockcrumb.name();
+                        if (Mockcrumb.DEFAULT == name) {
+                            name = field.getName();
+                        }
                         field.setAccessible(true);
-                        field.set(object, mockcrumbLoader.instance(field.getType(), mockcrumb.name()));
+                        field.set(object, mockcrumbLoader.instance(field.getType(), name));
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        throw new MockcrumbException(e);
                     }
                 }
             }

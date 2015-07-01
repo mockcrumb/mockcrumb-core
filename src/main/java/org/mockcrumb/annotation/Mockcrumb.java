@@ -8,5 +8,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Mockcrumb {
-    String name();
+    String name() default DEFAULT;
+
+    String DEFAULT = "@@DEFAULT@@";
 }
