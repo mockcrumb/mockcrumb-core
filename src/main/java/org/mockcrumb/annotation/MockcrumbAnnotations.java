@@ -18,7 +18,7 @@ public final class MockcrumbAnnotations {
                     try {
                         // Use field name if name not specified
                         String name = mockcrumb.name();
-                        if (Mockcrumb.DEFAULT == name) {
+                        if (Mockcrumb.DEFAULT.equals(name)) {
                             name = field.getName();
                         }
                         field.setAccessible(true);

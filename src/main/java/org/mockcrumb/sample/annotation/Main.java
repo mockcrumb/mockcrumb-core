@@ -17,9 +17,15 @@ public final class Main {
     public static final class FooEmbedded {
         @Mockcrumb(name = "aaa")
         private Foo foo;
+        @Mockcrumb
+        private Foo bbb;
 
-        public String getFooValue() {
-            return foo != null ? foo.getValue() : null;
+        public Foo getFoo() {
+            return foo;
+        }
+
+        public Foo getBbb() {
+            return bbb;
         }
     }
 
@@ -30,7 +36,8 @@ public final class Main {
         FooEmbedded fooEmbedded = new FooEmbedded();
         MockcrumbAnnotations.init(fooEmbedded, FileBasedMockcrumbLoader.of(contextPath,
                 FullyQualifiedCrumbResolver.INSTANCE, JsonCrumbReader.INSTANCE));
-        System.out.println(fooEmbedded.getFooValue());
+        System.out.println(fooEmbedded.getFoo().getValue());
+        System.out.println(fooEmbedded.getBbb().getValue());
 
         System.out.println("=== Finished");
     }
