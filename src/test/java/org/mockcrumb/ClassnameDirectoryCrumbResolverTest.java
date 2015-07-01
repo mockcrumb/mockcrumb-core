@@ -8,15 +8,12 @@ import java.nio.file.Path;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-
 public class ClassnameDirectoryCrumbResolverTest {
-    private ClassnameDirectoryCrumbResolver resolver = new ClassnameDirectoryCrumbResolver();
-
     @Test
     public void shouldGetRelativePath() {
         // Given && When
         String s = File.separator;
-        Path path1 = resolver.getRelativePath(org.mockcrumb.test.Foo.class, "sample");
+        Path path1 = ClassnameDirectoryCrumbResolver.INSTANCE.getRelativePath(org.mockcrumb.test.Foo.class, "sample");
 
         // Then
         assertThat(path1).isNotNull();

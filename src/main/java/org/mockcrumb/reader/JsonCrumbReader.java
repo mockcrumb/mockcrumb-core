@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-public class JsonCrumbReader implements CrumbReader {
+public enum JsonCrumbReader implements CrumbReader {
+    INSTANCE;
+
     private static final Gson GSON = new Gson();
 
     public <T> T read(final Class<T> clazz, final Path path) throws IOException {

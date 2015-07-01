@@ -9,13 +9,11 @@ import java.nio.file.Path;
 import static org.fest.assertions.Assertions.assertThat;
 
 public class FullyQualifiedCrumbResolverTest {
-    private FullyQualifiedCrumbResolver resolver = new FullyQualifiedCrumbResolver();
-
     @Test
     public void shouldGetRelativePath() {
         // Given && When
         String s = File.separator;
-        Path path1 = resolver.getRelativePath(org.mockcrumb.test.Foo.class, "sample");
+        Path path1 = FullyQualifiedCrumbResolver.INSTANCE.getRelativePath(org.mockcrumb.test.Foo.class, "sample");
 
         // Then
         assertThat(path1).isNotNull();

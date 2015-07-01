@@ -4,7 +4,9 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-public class ClassnameDirectoryCrumbResolver implements CrumbResolver {
+public enum ClassnameDirectoryCrumbResolver implements CrumbResolver {
+    INSTANCE;
+
     public <T> Path getRelativePath(final Class<T> clazz, final String name) {
         return Paths.get(classNameToPathString(clazz), name);
     }

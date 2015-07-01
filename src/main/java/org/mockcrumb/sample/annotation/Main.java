@@ -1,8 +1,10 @@
 package org.mockcrumb.sample.annotation;
 
-import org.mockcrumb.MockcrumbLoader;
+import org.mockcrumb.FileBasedMockcrumbLoader;
 import org.mockcrumb.annotation.MockcrumbAnnotations;
 import org.mockcrumb.annotation.Mockcrumb;
+import org.mockcrumb.reader.JsonCrumbReader;
+import org.mockcrumb.resolver.FullyQualifiedCrumbResolver;
 import org.mockcrumb.sample.model.Foo;
 
 import java.io.File;
@@ -26,7 +28,8 @@ public final class Main {
 
         Path contextPath = new File(Main.class.getClassLoader().getResource("sample-structure1").getPath()).toPath();
         FooEmbedded fooEmbedded = new FooEmbedded();
-        MockcrumbAnnotations.init(fooEmbedded, MockcrumbLoader.of(contextPath));
+        MockcrumbAnnotations.init(fooEmbedded, FileBasedMockcrumbLoader.of(contextPath,
+                FullyQualifiedCrumbResolver.INSTANCE, JsonCrumbReader.INSTANCE));
         System.out.println(fooEmbedded.getFooValue());
 
         System.out.println("=== Finished");

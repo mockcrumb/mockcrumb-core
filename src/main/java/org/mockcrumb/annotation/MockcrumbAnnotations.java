@@ -15,6 +15,7 @@ public final class MockcrumbAnnotations {
                 if (annotation instanceof Mockcrumb) {
                     Mockcrumb mockcrumb = (Mockcrumb) annotation;
                     try {
+                        // TODO(maciejgowin) Use field name if name not specified
                         field.setAccessible(true);
                         field.set(object, mockcrumbLoader.instance(field.getType(), mockcrumb.name()));
                     } catch (Exception e) {
