@@ -6,13 +6,13 @@ import org.mockcrumb.exception.MockcrumbException;
 import static org.fest.assertions.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
-public class FieldGeneratorMethodInvocationTest {
+public class GeneratorMethodInvocationTest {
     @Test
     public void shouldCreateInstance() {
         // Given && When
-        FieldGeneratorMethodInvocation invocation1 = FieldGeneratorMethodInvocation.of("test()");
-        FieldGeneratorMethodInvocation invocation2 = FieldGeneratorMethodInvocation.of("   tESt()   ");
-        FieldGeneratorMethodInvocation invocation3 = FieldGeneratorMethodInvocation.of("   test1     (         )   ");
+        GeneratorMethodInvocation invocation1 = GeneratorMethodInvocation.of("test()");
+        GeneratorMethodInvocation invocation2 = GeneratorMethodInvocation.of("   tESt()   ");
+        GeneratorMethodInvocation invocation3 = GeneratorMethodInvocation.of("   test1     (         )   ");
 
         // Then
         assertThat(invocation1).isNotNull();
@@ -32,7 +32,7 @@ public class FieldGeneratorMethodInvocationTest {
     public void shouldNotCreateInstance() {
         try {
             // Given && When && Then
-            FieldGeneratorMethodInvocation.of("te st()");
+            GeneratorMethodInvocation.of("te st()");
             fail();
         } catch (MockcrumbException e) {
             // Expected
@@ -40,7 +40,7 @@ public class FieldGeneratorMethodInvocationTest {
 
         try {
             // Given && When && Then
-            FieldGeneratorMethodInvocation.of("test(1)");
+            GeneratorMethodInvocation.of("test(1)");
             fail();
         } catch (MockcrumbException e) {
             // Expected
@@ -48,7 +48,7 @@ public class FieldGeneratorMethodInvocationTest {
 
         try {
             // Given && When && Then
-            FieldGeneratorMethodInvocation.of("test(");
+            GeneratorMethodInvocation.of("test(");
             fail();
         } catch (MockcrumbException e) {
             // Expected
@@ -56,7 +56,7 @@ public class FieldGeneratorMethodInvocationTest {
 
         try {
             // Given && When && Then
-            FieldGeneratorMethodInvocation.of("test)");
+            GeneratorMethodInvocation.of("test)");
             fail();
         } catch (MockcrumbException e) {
             // Expected
@@ -64,7 +64,7 @@ public class FieldGeneratorMethodInvocationTest {
 
         try {
             // Given && When && Then
-            FieldGeneratorMethodInvocation.of("1test()");
+            GeneratorMethodInvocation.of("1test()");
             fail();
         } catch (MockcrumbException e) {
             // Expected

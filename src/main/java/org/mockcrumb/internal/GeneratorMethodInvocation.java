@@ -8,14 +8,14 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FieldGeneratorMethodInvocation {
+public class GeneratorMethodInvocation {
     private static final Pattern METHOD_PATTERN = Pattern.compile("([^(]*)\\(([^)]*)\\)");
     private static final Pattern METHOD_NAME_PATTERN = Pattern.compile("[a-zA-Z][a-zA-Z0-9]*");
 
     private String name;
     private List<Object> args;
 
-    public static FieldGeneratorMethodInvocation of(final String initInvocationString) {
+    public static GeneratorMethodInvocation of(final String initInvocationString) {
         String invocationString = initInvocationString.trim();
         Matcher methodNameMatcher = METHOD_PATTERN.matcher(invocationString);
         if (methodNameMatcher.matches()) {
@@ -28,7 +28,7 @@ public class FieldGeneratorMethodInvocation {
                 throw new MockcrumbException("Method with parameters not supported yet: " + invocationString);
             }
 
-            FieldGeneratorMethodInvocation invocation = new FieldGeneratorMethodInvocation();
+            GeneratorMethodInvocation invocation = new GeneratorMethodInvocation();
             invocation.name = name;
             invocation.args = new ArrayList<>();
             return invocation;
@@ -59,7 +59,7 @@ public class FieldGeneratorMethodInvocation {
             return false;
         }
 
-        FieldGeneratorMethodInvocation that = (FieldGeneratorMethodInvocation) o;
+        GeneratorMethodInvocation that = (GeneratorMethodInvocation) o;
         return Objects.equals(name, that.name) && Objects.equals(args, that.args);
     }
 

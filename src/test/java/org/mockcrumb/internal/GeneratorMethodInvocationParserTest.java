@@ -6,15 +6,15 @@ import java.util.Map;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-public class FieldGeneratorMethodInvocationParserTest {
-    private FieldGeneratorInvocationParser parser = new FieldGeneratorInvocationParser();
+public class GeneratorMethodInvocationParserTest {
+    private GeneratorInvocationParser parser = new GeneratorInvocationParser();
 
     @Test
     public void shouldParse() {
         // Given && When
-        Map<String, FieldGeneratorMethodInvocation> invocations1 =
+        Map<String, GeneratorMethodInvocation> invocations1 =
                 parser.parse("sample {{  sampleFunction    (       ) }}  sample ");
-        Map<String, FieldGeneratorMethodInvocation> invocations2 =
+        Map<String, GeneratorMethodInvocation> invocations2 =
                 parser.parse("sample {{sampleFunction() }}{{test()}}   test    {{     another()}}     sample ");
 
         // Then
