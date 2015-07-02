@@ -18,12 +18,19 @@ public final class MockcrumbLoaderRegistry {
     }
 
     public MockcrumbLoaderRegistry add(final String group, final MockcrumbLoader loader) {
+        if (group == null) {
+            throw new MockcrumbException("Registered loader group name cannot be null");
+        }
+
+        if (loader == null) {
+            throw new MockcrumbException("Registered loader cannot be null");
+        }
         loaders.put(group, loader);
         return this;
     }
 
     public MockcrumbLoader get(final String group) {
-        if (loaders.containsKey(group) && loaders.get(group) != null) {
+        if (group != null && loaders.containsKey(group) && loaders.get(group) != null) {
             return loaders.get(group);
         }
         throw new MockcrumbException("Mockcrumb loader not defined for group: " + group);
