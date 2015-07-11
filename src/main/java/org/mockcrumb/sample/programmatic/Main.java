@@ -5,8 +5,8 @@ import org.mockcrumb.reader.JsonCrumbReader;
 import org.mockcrumb.resolver.ClassnameDirectoryCrumbResolver;
 import org.mockcrumb.resolver.FullyQualifiedCrumbResolver;
 import org.mockcrumb.sample.model.Foo;
+import org.mockcrumb.sample.utils.SampleUtils;
 
-import java.io.File;
 import java.util.Collection;
 
 public final class Main {
@@ -14,23 +14,19 @@ public final class Main {
     }
 
     public static void main(final String[] args) {
-        System.out.println("=== Started");
+        SampleUtils.printStarted();
 
-        FileBasedMockcrumbLoader mockcrumbLoader1 =
-                FileBasedMockcrumbLoader.of(
-                        new File(Main.class.getClassLoader().getResource("sample-structure1").getPath()).toPath(),
-                        FullyQualifiedCrumbResolver.INSTANCE, JsonCrumbReader.INSTANCE);
+        FileBasedMockcrumbLoader mockcrumbLoader1 = FileBasedMockcrumbLoader.of(SampleUtils.sampleStructure1Path(),
+                FullyQualifiedCrumbResolver.INSTANCE, JsonCrumbReader.INSTANCE);
         run(mockcrumbLoader1, "aaa");
 
-        System.out.println("===");
+        SampleUtils.printSeparator();
 
-        FileBasedMockcrumbLoader mockcrumbLoader2 =
-                FileBasedMockcrumbLoader.of(
-                        new File(Main.class.getClassLoader().getResource("sample-structure2").getPath()).toPath(),
-                        ClassnameDirectoryCrumbResolver.INSTANCE, JsonCrumbReader.INSTANCE);
+        FileBasedMockcrumbLoader mockcrumbLoader2 = FileBasedMockcrumbLoader.of(SampleUtils.sampleStructure2Path(),
+                ClassnameDirectoryCrumbResolver.INSTANCE, JsonCrumbReader.INSTANCE);
         run(mockcrumbLoader2, "ccc");
 
-        System.out.println("=== Finished");
+        SampleUtils.printFinished();
     }
 
     public static void run(final FileBasedMockcrumbLoader mockcrumbLoader, final String sampleObjectName) {

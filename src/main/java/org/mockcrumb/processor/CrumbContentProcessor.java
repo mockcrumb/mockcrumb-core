@@ -17,7 +17,7 @@ public class CrumbContentProcessor {
 
     public CrumbContentProcessor(final List<? extends Generator> generators) {
         if (generators != null) {
-            this.generators = generators;
+            this.generators = new ArrayList<>(generators);
         } else {
             this.generators = new ArrayList<>();
         }

@@ -14,7 +14,7 @@ public class GeneratorSupportedJsonCrumbReader implements CrumbReader {
 
     private final CrumbContentProcessor processor;
 
-    public GeneratorSupportedJsonCrumbReader(final List<Generator> generators) {
+    public GeneratorSupportedJsonCrumbReader(final List<? extends Generator> generators) {
         this.processor = new CrumbContentProcessor(generators);
     }
 
