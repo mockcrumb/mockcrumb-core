@@ -1,7 +1,6 @@
-package org.mockcrumb;
+package org.mockcrumb.resolver;
 
 import org.junit.Test;
-import org.mockcrumb.resolver.ClassnameDirectoryCrumbResolver;
 
 import java.io.File;
 import java.nio.file.Path;
