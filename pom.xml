@@ -28,6 +28,7 @@
     <connection>scm:git:git@github.com:mockcrumb/mockcrumb-core.git</connection>
     <developerConnection>scm:git:git@github.com:mockcrumb/mockcrumb-core.git</developerConnection>
     <url>git@github.com:mockcrumb/mockcrumb-core.git</url>
+    <tag>HEAD</tag>
   </scm>
 
   <properties>
@@ -128,4 +129,17 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>mockcrumb-oss-sonapse-snapshot</id>
+      <name>Mockcrumb OSS Sonapse Snaphot Repository</name>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>mockcrumb-oss-sonapse-release</id>
+      <name>Mockcrumb OSS Sonapse Snaphot Release</name>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+    </repository>
+  </distributionManagement>
 </project>
