@@ -3,7 +3,7 @@
   <groupId>org.mockcrumb</groupId>
   <artifactId>mockcrumb-core</artifactId>
   <packaging>jar</packaging>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.2-SNAPSHOT</version>
 
   <name>Mockcrumb Core</name>
   <description>Mockcrumb Core provides data mocking functionality based on the content loaded from various data sources.</description>
