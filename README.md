@@ -77,3 +77,17 @@ Data source defined under `/path/to/resources/Foo/foo1`:
 ```
 
 Please note that mock objects loader may be defined in the global scope and reused. Above example assumes usage of built-in file based loader for JSON formatted data.
+
+## Distribution
+
+The library is available under Maven Central repository. To use it simply add Mockcrumb as a dependency to your pom.xml file:
+
+```xml
+<dependency>
+    <groupId>org.mockcrumb</groupId>
+    <artifactId>mockcrumb-core</artifactId>
+    <version>0.0.1</version>
+</dependency>
+```
+
+Please visit Maven Central repository website for more details.
