@@ -3,11 +3,10 @@ package org.mockcrumb.processor;
 import org.junit.Test;
 import org.mockcrumb.exception.MockcrumbException;
 import org.mockcrumb.generator.Generator;
-import org.mockcrumb.processor.CrumbContentProcessor;
 
 import java.util.Arrays;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.fail;
 
 public class CrumbContentProcessorTest {
