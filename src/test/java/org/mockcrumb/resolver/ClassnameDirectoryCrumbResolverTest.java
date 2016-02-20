@@ -12,7 +12,7 @@ public class ClassnameDirectoryCrumbResolverTest {
     public void shouldGetRelativePath() {
         // Given && When
         String s = File.separator;
-        Path path1 = ClassnameDirectoryCrumbResolver.INSTANCE.getRelativePath(org.mockcrumb.test.Foo.class, "sample");
+        Path path1 = ClassnameDirectoryCrumbResolver.INSTANCE.getPath(org.mockcrumb.test.Foo.class, "sample");
 
         // Then
         assertThat(path1).isNotNull();
