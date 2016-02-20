@@ -7,12 +7,9 @@ import java.nio.file.Paths;
 public class ClassnameDirectoryCrumbResolver implements CrumbResolver {
     public static final ClassnameDirectoryCrumbResolver INSTANCE = new ClassnameDirectoryCrumbResolver();
 
+    @Override
     public <T> Path getRelativePath(final Class<T> clazz, final String name) {
         return Paths.get(classNameToPathString(clazz), name);
-    }
-
-    public <T> boolean isApplicable(final Class<T> clazz, final Path relativePath) {
-        return relativePath.toString().startsWith(classNameToPathString(clazz));
     }
 
     <T> String classNameToPathString(final Class<T> clazz) {

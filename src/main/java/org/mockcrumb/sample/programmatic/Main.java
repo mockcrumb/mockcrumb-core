@@ -7,8 +7,6 @@ import org.mockcrumb.resolver.FullyQualifiedCrumbResolver;
 import org.mockcrumb.sample.model.Foo;
 import org.mockcrumb.sample.utils.SampleUtils;
 
-import java.util.Collection;
-
 public final class Main {
     private Main() {
     }
@@ -32,11 +30,5 @@ public final class Main {
     public static void run(final FileBasedMockcrumbLoader mockcrumbLoader, final String sampleObjectName) {
         Foo foo1 =  mockcrumbLoader.instance(Foo.class, sampleObjectName);
         System.out.println("Foo: " + foo1.getValue());
-
-        Collection<Foo> fooCollection1 = mockcrumbLoader.instances(Foo.class);
-        System.out.println("Foo collection: size: " + fooCollection1.size());
-        for (Foo foo: fooCollection1) {
-            System.out.println("Foo: " + foo.getValue());
-        }
     }
 }
